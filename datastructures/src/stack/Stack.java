@@ -8,18 +8,45 @@ public class Stack {
 		if(top==stack.length) {
 			System.out.println("cannot push elements");
 		}
-		stack[top] = data;
-		top++;
+		else {
+			stack[top] = data;
+			top++;			
+		}
 	}
 	
-	public void pop(){
+	public int pop(){
+		if(isempty()) {
+			System.out.println("No elements to pop");
+			return -1;
+		}
+		else {
+			top--;
+			int data= stack[top];
+			stack[top]=0;
+			return data;
+		}
+		
+		
+	}
+	
+	public int peek(){
 		if(top==0) {
 			System.out.println("No elements to pop");
 		}
-		top--;
-		int data= stack[top];
-		stack[top]=0;
+		int data= stack[top-1];
+		return data;	
+	}
+	
+	public boolean isempty(){
+//		if(top==0) {
+//			return true;
+//		}
+		return top==0?true:false;
 		
+	}
+	
+	public int size(){
+		return top;
 	}
 	
 	public void show() {
